@@ -1,0 +1,21 @@
+.logo{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background: white;
+    height: 70px;
+    width: 100%;
+
+}
+.logo img{
+    width: 30px;
+    height: auto;
+}
+.logo .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo .menu p{
+    
+}
