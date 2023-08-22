@@ -34,16 +34,15 @@ def import_handler(handler_func):
 
 
 class Network:
-    """Generic network abstraction.
+    """Rede neural genérica.
 
-    Acts as a convenience wrapper for a parameterized network construction
-    function, providing several utility methods and convenient access to
-    the inputs/outputs/weights.
+    Atua como um wrapper de conveniência para uma construção de rede parametrizada
+    função, fornecendo vários métodos utilitários e acesso conveniente a
+    as entradas/saídas/pesos.
 
-    Network objects can be safely pickled and unpickled for long-term
-    archival purposes. The pickling works reliably as long as the underlying
-    network construction function is defined in a standalone Python module
-    that has no side effects or application-specific imports.
+    Objetos de rede podem ser do tipo empacotados(.pkl). A decapagem funciona de forma confiável, 
+    desde que o substrato subjacente função de construção de rede é definida em um módulo autônomo do Python
+    que não tem efeitos colaterais ou importações específicas de aplicativos.
 
     Args:
         name: Network name. Used to select TensorFlow name and variable scopes.
@@ -51,7 +50,7 @@ class Network:
         static_kwargs: Keyword arguments to be passed in to the network construction function.
 
     Attributes:
-        name: User-specified name, defaults to build func name if None.
+        name: Nome especificado pelo usuário, padrão para criar o nome da função se Nenhum.
         scope: Unique TensorFlow scope containing template graph and variables, derived from the user-specified name.
         static_kwargs: Arguments passed to the user-supplied build func.
         components: Container for sub-networks. Passed to the build func, and retained between calls.

@@ -192,14 +192,14 @@ def is_pickleable(obj: Any) -> bool:
 # ------------------------------------------------------------------------------------------
 
 def get_module_from_obj_name(obj_name: str) -> Tuple[types.ModuleType, str]:
-    """Searches for the underlying module behind the name to some python object.
-    Returns the module and the object name (original name with module part removed)."""
+    """Procura o módulo subjacente por trás do nome de algum objeto python.
+    Retorna o módulo e o nome do objeto (nome original com a parte do módulo removida)."""
 
-    # allow convenience shorthands, substitute them by full names
+    # permita abreviações de conveniência, substitua-as por nomes completos
     obj_name = re.sub("^np.", "numpy.", obj_name)
     obj_name = re.sub("^tf.", "tensorflow.", obj_name)
 
-    # list alternatives for (module_name, local_obj_name)
+    # listar alternativas para (module_name, local_obj_name)
     parts = obj_name.split(".")
     name_pairs = [(".".join(parts[:i]), ".".join(parts[i:])) for i in range(len(parts), 0, -1)]
 
@@ -243,7 +243,7 @@ def get_obj_from_module(module: types.ModuleType, obj_name: str) -> Any:
 
 
 def get_obj_by_name(name: str) -> Any:
-    """Finds the python object with the given name."""
+    """Localiza o objeto python com o nome fornecido."""
     module, obj_name = get_module_from_obj_name(name)
     return get_obj_from_module(module, obj_name)
 
