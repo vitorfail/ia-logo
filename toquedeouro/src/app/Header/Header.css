@@ -1,21 +1,179 @@
-.logo{
-    display: flex;
-    align-items: center;
+
+.header{
+    transition: all ease 0.2s;
     position: fixed;
-    background: white;
-    height: 70px;
+    top: 40px;
+    z-index: 100;
     width: 100%;
+    height: 100px;
+    color: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0);
+    align-items: center;
+    display: flex;
+}
+.header.show{
+    color: rgb(0, 0, 0);
+    background: white;
+    top: 0;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.288);
+}
+.header.show .item .titulo img {
+    opacity: 0;
+}
+.header.show .logo .img{
+    background: url("../image/logo1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 90px;
+    height: 90px;
 
 }
-.logo img{
-    width: 30px;
-    height: auto;
-}
-.logo .menu{
+.mini-menu{
+    width: 100%;
+    height: 100%;
+    position: fixed;
     display: flex;
+    z-index: 120;
+    background: rgba(0, 0, 0, 0.623);
+}
+.mini-menu .menu{
+    height: 90%;
+    width: 50%;
+    background: white;
+    top: 0;
+    left: 0;
+}
+
+.header .logo .img{
+    margin-left: 100px;
+    background: url("../image/logo2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 90px;
+    height: 90px;
+}
+.header .logo{
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 35%;
+}
+.header .menu{
+    display: flex;
+    align-items: center;
     justify-content: center;
+    height: 100%;
+    width: 30%;
+}
+.header .aviso{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    height: 100%;
+}
+.header .item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2px;
+}
+.header span{
+    margin-top: -6px;
+    margin-left: 7px;
+    transition: all 0.3s ease-in-out;
+    width: 0px;
+    height: 1.5px;
+    background: white;
+}
+.header .titulo:hover+ span{
+    width: 80%;
+}
+.header .titulo p:hover+ img{
+    transform: rotate(0deg);
+}
+.header .titulo:hover > .catalogo_lista{
+    display: flex;
+}
+.header p{
+    font-weight: 580;
+    font-size: 15px;
+    line-height: 1.1;
+    cursor: pointer;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin: 9px;
+}
+.header .item .titulo{
+    align-items: center;
+    display: flex;
+}
+.header .item .titulo img{
+    opacity: initial;
+    transition: all 0.1s ease-in-out;
+    margin-left: -7px;
+    transform: rotate(-180deg);
+}
+.catalogo_lista {
+    transition: all 0.2s ease-in-out;
+    animation: aparecer linear 0.2s;
+    color: black;
+    right: 0;
+    margin-top: 300px;
+    position: fixed;
+    background: white;
+    height: 200px;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
     align-items: center;
 }
-.logo .menu p{
-    
+.catalogo_lista.show{
+    display: flex;
+}
+.cabecalho{
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    background: white;
+  }
+.cabecalho img:nth-child(1){
+    transition: all 0.2s ease-in-out;
+    margin-left: 20px;
+}
+.cabecalho img:nth-child(1):focus{
+    transform: rotate(-180deg);
+}
+.cabecalho img:nth-child(2){
+    margin-right: 20px;
+}
+@keyframes aparecer{
+    0%{
+        opacity:0;
+    }
+    30%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@media screen and (max-width:700px) {
+    .header{
+        display: none;
+    }
+    .header.show{
+        display:none;
+    }
+    .cabecalho{
+        display: flex;
+      }
 }

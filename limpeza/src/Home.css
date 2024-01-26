@@ -1,0 +1,11 @@
+.content{
+  position: absolute;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background: var(--branco);
+}
+.content .cards{
+  width: 100%;
+  height: auto;
+}
