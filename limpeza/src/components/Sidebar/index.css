@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     height: 100%;
-    background:radial-gradient(var(--fundo), var(--fundo2)) ;
+    background:linear-gradient(to bottom right, var(--fundo), var(--fundo2)) ;
     width: 20%;
     display: flex;
     flex-direction: column;

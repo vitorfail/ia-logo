@@ -6,6 +6,14 @@
   background: var(--branco);
 }
 .content .cards{
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: auto;
+  display: flex;
+}
+.content .cards .card{
+  width: 30%;
+  border-radius: 12px;
+  box-shadow: 3px 3px 8px var(--fundo2);
 }
