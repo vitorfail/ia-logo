@@ -8,10 +8,22 @@ export default function Sidebar(){
                 <p>Limpeza</p>
             </div>
             <div className="ops">
-                <p>Home</p>
-                <p>Cadastrar</p>
-                <p>Localização</p>
-                <p>Exit</p>
+                <div className="li">
+                    <div className="icon"></div>
+                    <p>Home</p>
+                </div>
+                <div className="li">
+                    <div className="icon"></div>
+                    <p>Cadastrar</p>
+                </div>
+                <div className="li">
+                    <div className="icon"></div>
+                    <p>Localização</p>
+                </div>
+                <div className="li">
+                    <div className="icon"></div>
+                    <p>Exit</p>
+                </div>
             </div>
         </div>
     )

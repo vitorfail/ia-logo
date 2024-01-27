@@ -2,26 +2,42 @@ import './index.css';
 import Sidebar from "../../components/Sidebar/index"
 import { useEffect, useState } from 'react';
 import Cli from "../../img/client.png"
+import Pesquisa from '../../components/Pesquisa';
 
 function Home() {
   const [cliente, setclientes] = useState(13)
   const [cliente_prox, setcliente_prox] = useState("José")
   const [cliente_long, setcliente_log] = useState("Gilberto")
-  const linhas = []
-  const linhas2 = []
-  const qtd = 51
-  for (let i = 0; i < qtd; i++) {
-    linhas.push(i)
-  }
-  const qtd2 = 25
-  for (let i = 0; i < qtd2; i++) {
-    linhas2.push(i)
-  }
+  useEffect(() =>{
+    const percentageA = 40;
+    const percentageB = 60;
+
+    // Calcula o ângulo com base nas porcentagens
+    const angleA = (percentageA / 100) * 360;
+    const angleB = (percentageB / 100) * 360;
+
+    // Atualiza o tamanho das fatias
+    const sliceA = document.getElementById('slicea');
+    sliceA.setAttribute('d', calculateSlicePath(0, angleA));
+
+    const sliceB = document.getElementById('sliceb');
+    sliceB.setAttribute('d', calculateSlicePath(angleA, angleB));
+  // Função para calcular o caminho da fatia
+
+  }, [])
+  const calculateSlicePath = (startAngle, endAngle) => {
+    const radius = 50;
+    const startX = Math.cos((startAngle - 90) * (Math.PI / 180)) * radius;
+    const startY = Math.sin((startAngle - 90) * (Math.PI / 180)) * radius;
+    const endX = Math.cos((endAngle - 90) * (Math.PI / 180)) * radius;
+    const endY = Math.sin((endAngle - 90) * (Math.PI / 180)) * radius;
+    const largeArcFlag = endAngle - startAngle <= 180 ? 0 : 1;
+    return `M0,0 L${startX},${startY} A${radius},${radius} 0 ${largeArcFlag},1 ${endX},${endY} Z`;  }
   return (
     <div className="App">
       <Sidebar></Sidebar>
       <div className='content'>
-        <div className='pesquisa'></div>
+        <Pesquisa></Pesquisa>
         <div className='cards'>
           <div className='card'>
             <div className='titulo'>
@@ -93,11 +109,11 @@ function Home() {
             <div class="chart-container">
               <svg class="chart2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(50,50)">
-                  <path class="slice" d="M0,0 L0,-50 A50,50 0 0,1 0,50 Z" fill="#4CAF50"></path>
-                  <text class="label" x="0" y="-25">Categoria A</text>
+                  <path className="slice" id="slicea" d="M0,0 L0,-50 A50,50 0 0,1 0,50 Z" fill="#4CAF50"></path>
+                  <text className="label" x="0" y="-25">Categoria A</text>
 
-                  <path class="slice" d="M0,0 L0,50 A50,50 0 0,1 0,-50 Z" fill="#2196F3"></path>
-                  <text class="label" x="0" y="25">Categoria B</text>                </g>
+                  <path className="slice" id="sliceb"  d="M0,0 L0,50 A50,50 0 0,1 0,-50 Z" fill="#2196F3"></path>
+                  <text className="label" x="0" y="25">Categoria B</text>                </g>
               </svg>
             </div>
 

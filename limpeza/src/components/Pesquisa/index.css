@@ -1,0 +1,8 @@
+.pesquisa{
+    position: fixed;
+    box-shadow: 0px 0px 7px var(--sombra);
+    background: var(--barra-pesquisa) ;
+    width: 100%;
+    height: 10%;
+  }
+  
