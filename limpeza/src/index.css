@@ -4,7 +4,11 @@
   --branco3:#D3B6FF;
   --fundo:#5D36FF;
   --fundo2:#470CED;
+  --fundo3:#2C13AD;
+  --fundo4:#1C0C6E;
+  --fundo5:#0E0637;
   --fundo-branco:#7858ff;
+  --sombra:#1c0c6e8f;
 }
 @font-face {
     font-family: "Roboto";
@@ -42,6 +46,7 @@
     box-sizing: border-box;
     font-family: "Roboto";
     font-weight: 400;
+    transition: all 0.2s;
   }
 .App{
   color: var(--fundo);
